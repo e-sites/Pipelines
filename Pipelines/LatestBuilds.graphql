@@ -1,0 +1,22 @@
+query LatestBuilds($totalBuilds:Int!) {
+  viewer {
+    user {
+      builds(first: $totalBuilds) {
+        edges {
+          node {
+            state
+            number
+            branch
+            message
+            url
+            createdAt
+            finishedAt
+            pipeline {
+              name
+            }
+          }
+        }
+      }
+    }
+  }
+}
