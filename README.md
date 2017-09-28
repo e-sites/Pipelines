@@ -6,7 +6,7 @@
 
 ## Example
 
-![Screenshot](Assets/statusbar.png)
+![Screenshot](Assets/statusbar.png?001)
 > 💡 Tapping on the build states will open [buildkite.com/builds](https://buildkite.com/builds).
 
 **Closing?**   
