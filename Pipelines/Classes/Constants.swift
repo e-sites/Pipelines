@@ -11,5 +11,5 @@ import Foundation
 enum Constants {
     static let totalBuilds = 5
     static let fetchInterval = 5.0
-    static let token = "abd71cda83758cd20b424fc"
+    static let token: String = <BUILDKITE-AGENT-TOKEN>
 }
