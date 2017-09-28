@@ -1,12 +1,18 @@
 # ![Pipelines](Assets/Icon.png) Pipelines
 
-A macOS statusbar app that monitors Buildkite builds
+> Adds your build states for your [Buildkite](https://buildkite.com) builds to your statusbar.
 
 [![forthebadge](http://forthebadge.com/images/badges/compatibility-emacs.svg)](http://forthebadge.com) [![forthebadge](http://forthebadge.com/images/badges/60-percent-of-the-time-works-every-time.svg)](http://forthebadge.com)
 
-> Adds your build states for your [Buildkite](https://buildkite.com) builds to your statusbar.
+## Screenshot
 
 ![Screenshot](Assets/statusbar.png)
+> Tapping on the build states will open [buildkite/builds](https://buildkite.com/builds).
+
+## Requirements
+ - Xcode 9
+ - Swift 4
+ - Cocoapods 1.3
 
 ## Installation
 
@@ -27,6 +33,9 @@ Open `Classes/Constants.swift`.
  - `totalBuilds`: The number of builds you want to monitor (the last x)
  - `fetchInterval`: At what time interval (seconds) should the app check 
 
----
+## Dependencies
+ - [Apollo](https://github.com/apollographql/apollo-ios)
+ - [Macaw](https://github.com/exyte/Macaw)
 
+---
 ⚠️ *This is an unoffical app, Buildkite is in no way responsible for this or anything related to this particular product*
