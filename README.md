@@ -1,4 +1,8 @@
-# Pipelines
+# ![Pipelines](Assets/Icon.png) Pipelines
+
+A macOS statusbar app that monitors Buildkite builds
+
+[![forthebadge](http://forthebadge.com/images/badges/compatibility-emacs.svg)](http://forthebadge.com) [![forthebadge](http://forthebadge.com/images/badges/60-percent-of-the-time-works-every-time.svg)](http://forthebadge.com)
 
 > Adds your build states for your [Buildkite](https://buildkite.com) builds to your statusbar.
 
