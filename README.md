@@ -49,5 +49,9 @@ Open `Classes/Constants.swift`.
  - [Macaw](https://github.com/exyte/Macaw)
  - [SwiftyUserDefaults](https://github.com/radex/SwiftyUserDefaults)
 
+## Todo
+- [x] Notifications
+- [ ] Make context menu to show build information
+
 ---
 ⚠️ *This is an unoffical app, Buildkite is in no way responsible for this or anything related to this particular product*
