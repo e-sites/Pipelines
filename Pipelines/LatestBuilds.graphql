@@ -4,6 +4,7 @@ query LatestBuilds($totalBuilds:Int!) {
       builds(first: $totalBuilds) {
         edges {
           node {
+            id
             state
             number
             branch

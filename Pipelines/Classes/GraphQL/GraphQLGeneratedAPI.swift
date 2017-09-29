@@ -28,7 +28,7 @@ extension BuildStates: Apollo.JSONDecodable, Apollo.JSONEncodable {}
 
 public final class LatestBuildsQuery: GraphQLQuery {
   public static let operationString =
-    "query LatestBuilds($totalBuilds: Int!) {\n  viewer {\n    __typename\n    user {\n      __typename\n      builds(first: $totalBuilds) {\n        __typename\n        edges {\n          __typename\n          node {\n            __typename\n            state\n            number\n            branch\n            message\n            url\n            createdAt\n            finishedAt\n            pipeline {\n              __typename\n              name\n            }\n          }\n        }\n      }\n    }\n  }\n}"
+    "query LatestBuilds($totalBuilds: Int!) {\n  viewer {\n    __typename\n    user {\n      __typename\n      builds(first: $totalBuilds) {\n        __typename\n        edges {\n          __typename\n          node {\n            __typename\n            id\n            state\n            number\n            branch\n            message\n            url\n            createdAt\n            finishedAt\n            pipeline {\n              __typename\n              name\n            }\n          }\n        }\n      }\n    }\n  }\n}"
 
   public var totalBuilds: Int
 
@@ -217,6 +217,7 @@ public final class LatestBuildsQuery: GraphQLQuery {
 
               public static let selections: [GraphQLSelection] = [
                 GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+                GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
                 GraphQLField("state", type: .nonNull(.scalar(BuildStates.self))),
                 GraphQLField("number", type: .nonNull(.scalar(Int.self))),
                 GraphQLField("branch", type: .nonNull(.scalar(String.self))),
@@ -233,8 +234,8 @@ public final class LatestBuildsQuery: GraphQLQuery {
                 self.snapshot = snapshot
               }
 
-              public init(state: BuildStates, number: Int, branch: String, message: String, url: String, createdAt: String? = nil, finishedAt: String? = nil, pipeline: Pipeline? = nil) {
-                self.init(snapshot: ["__typename": "Build", "state": state, "number": number, "branch": branch, "message": message, "url": url, "createdAt": createdAt, "finishedAt": finishedAt, "pipeline": pipeline.flatMap { $0.snapshot }])
+              public init(id: GraphQLID, state: BuildStates, number: Int, branch: String, message: String, url: String, createdAt: String? = nil, finishedAt: String? = nil, pipeline: Pipeline? = nil) {
+                self.init(snapshot: ["__typename": "Build", "id": id, "state": state, "number": number, "branch": branch, "message": message, "url": url, "createdAt": createdAt, "finishedAt": finishedAt, "pipeline": pipeline.flatMap { $0.snapshot }])
               }
 
               public var __typename: String {
@@ -243,6 +244,15 @@ public final class LatestBuildsQuery: GraphQLQuery {
                 }
                 set {
                   snapshot.updateValue(newValue, forKey: "__typename")
+                }
+              }
+
+              public var id: GraphQLID {
+                get {
+                  return snapshot["id"]! as! GraphQLID
+                }
+                set {
+                  snapshot.updateValue(newValue, forKey: "id")
                 }
               }
 

@@ -21,6 +21,8 @@
 		C34454761F7D22E40027BDA1 /* GraphQLGeneratedAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34454751F7D22E40027BDA1 /* GraphQLGeneratedAPI.swift */; };
 		C34454781F7D2EB40027BDA1 /* scheduled.svg in Resources */ = {isa = PBXBuildFile; fileRef = C34454771F7D2EB20027BDA1 /* scheduled.svg */; };
 		C344547A1F7D2FE20027BDA1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34454791F7D2FE20027BDA1 /* Constants.swift */; };
+		C344547D1F7E1CE80027BDA1 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C344547C1F7E1CE80027BDA1 /* NotificationCenter.framework */; };
+		C344547F1F7E21750027BDA1 /* Emojis.swift in Sources */ = {isa = PBXBuildFile; fileRef = C344547E1F7E21750027BDA1 /* Emojis.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,8 @@
 		C34454751F7D22E40027BDA1 /* GraphQLGeneratedAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GraphQLGeneratedAPI.swift; path = Pipelines/Classes/GraphQL/GraphQLGeneratedAPI.swift; sourceTree = SOURCE_ROOT; };
 		C34454771F7D2EB20027BDA1 /* scheduled.svg */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = scheduled.svg; sourceTree = "<group>"; };
 		C34454791F7D2FE20027BDA1 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		C344547C1F7E1CE80027BDA1 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		C344547E1F7E21750027BDA1 /* Emojis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emojis.swift; sourceTree = "<group>"; };
 		F0FB0999597FE95B0ACBCFCA /* Pods-Pipelines.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pipelines.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pipelines/Pods-Pipelines.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -50,6 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C344547D1F7E1CE80027BDA1 /* NotificationCenter.framework in Frameworks */,
 				AB284CCBBC309A4772F75582 /* Pods_Pipelines.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -69,6 +74,7 @@
 		97DCC60204C3DB15F4C5CE31 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C344547C1F7E1CE80027BDA1 /* NotificationCenter.framework */,
 				A9915F2A5959212E3E4F4E1E /* Pods_Pipelines.framework */,
 			);
 			name = Frameworks;
@@ -113,6 +119,7 @@
 				C34454631F7D0CAB0027BDA1 /* StatusItemManager.swift */,
 				C344546B1F7D13D90027BDA1 /* StatusIconView.swift */,
 				C34454791F7D2FE20027BDA1 /* Constants.swift */,
+				C344547E1F7E21750027BDA1 /* Emojis.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -247,12 +254,14 @@
 				"${BUILT_PRODUCTS_DIR}/Apollo/Apollo.framework",
 				"${BUILT_PRODUCTS_DIR}/Macaw/Macaw.framework",
 				"${BUILT_PRODUCTS_DIR}/SWXMLHash/SWXMLHash.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyUserDefaults/SwiftyUserDefaults.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Apollo.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Macaw.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SWXMLHash.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyUserDefaults.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -298,6 +307,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C344547F1F7E21750027BDA1 /* Emojis.swift in Sources */,
 				C34454641F7D0CAB0027BDA1 /* StatusItemManager.swift in Sources */,
 				C344546C1F7D13D90027BDA1 /* StatusIconView.swift in Sources */,
 				C34454551F7D09350027BDA1 /* AppDelegate.swift in Sources */,

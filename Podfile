@@ -4,4 +4,5 @@ use_frameworks!
 target 'Pipelines' do  
     pod 'Macaw', '~> 0.9'
     pod 'Apollo', '= 0.7.0-alpha.5'
+    pod 'SwiftyUserDefaults', '~> 3.0'
 end

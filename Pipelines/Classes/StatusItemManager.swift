@@ -9,6 +9,8 @@
 import Foundation
 import Cocoa
 import Apollo
+import NotificationCenter
+import SwiftyUserDefaults
 
 class StatusItemManager {
     private(set) var statusItem: NSStatusItem!
@@ -58,6 +60,9 @@ class StatusItemManager {
             }
             let iconView = _statusIcons[index]
             iconView.state = BuildState(from: node.state)
+            if index == 0 {
+                triggerLocalNotification(for: node)
+            }
         }
     }
 
@@ -65,5 +70,28 @@ class StatusItemManager {
     private func _tapStatusButton() {
         let url = URL(string: "https://buildkite.com/builds")!
         NSWorkspace.shared.open(url)
+    }
+}
+
+extension DefaultsKeys {
+    fileprivate static let deliveredNotifications = DefaultsKey<[String]>("deliveredNotifications")
+}
+
+extension StatusItemManager {
+    func triggerLocalNotification(`for` node: LatestBuildsQuery.Data.Viewer.User.Build.Edge.Node) {
+        if Defaults[.deliveredNotifications].contains(node.id) {
+            return
+        }
+
+        guard let pipeline = node.pipeline?.name else {
+            return
+        }
+        Defaults[.deliveredNotifications].append(node.id)
+
+        let notification = NSUserNotification()
+        notification.title = "New build"
+        notification.subtitle = pipeline.emojiRendered
+        notification.informativeText = node.message.emojiRendered
+        NSUserNotificationCenter.default.deliver(notification)
     }
 }
