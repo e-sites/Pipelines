@@ -16,11 +16,19 @@
  - Xcode 9
  - Swift 4
  - Cocoapods 1.3
+ - apollo-codegen 0.17.0-alpha.7
 
 ## Installation
 
+### Apollo
+*Requires `node`*
+
+```
+npm install -g apollo-codegen@0.17.0-alpha.7
+```
+
 ### Cocoapods
-```ruby
+```
 pod install
 ```
 
@@ -39,6 +47,7 @@ Open `Classes/Constants.swift`.
 ## Dependencies
  - [Apollo](https://github.com/apollographql/apollo-ios)
  - [Macaw](https://github.com/exyte/Macaw)
+ - [SwiftyUserDefaults](https://github.com/radex/SwiftyUserDefaults)
 
 ---
 ⚠️ *This is an unoffical app, Buildkite is in no way responsible for this or anything related to this particular product*
