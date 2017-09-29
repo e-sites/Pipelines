@@ -23,6 +23,9 @@
 		C344547A1F7D2FE20027BDA1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34454791F7D2FE20027BDA1 /* Constants.swift */; };
 		C344547D1F7E1CE80027BDA1 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C344547C1F7E1CE80027BDA1 /* NotificationCenter.framework */; };
 		C344547F1F7E21750027BDA1 /* Emojis.swift in Sources */ = {isa = PBXBuildFile; fileRef = C344547E1F7E21750027BDA1 /* Emojis.swift */; };
+		C3613DF51F7E908600009B0D /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3613DF41F7E908600009B0D /* NotificationManager.swift */; };
+		C3613DF71F7E90D700009B0D /* BuildState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3613DF61F7E90D700009B0D /* BuildState.swift */; };
+		C3613DFB1F7E943100009B0D /* NSView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3613DFA1F7E943100009B0D /* NSView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +49,9 @@
 		C34454791F7D2FE20027BDA1 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C344547C1F7E1CE80027BDA1 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		C344547E1F7E21750027BDA1 /* Emojis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emojis.swift; sourceTree = "<group>"; };
+		C3613DF41F7E908600009B0D /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		C3613DF61F7E90D700009B0D /* BuildState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildState.swift; sourceTree = "<group>"; };
+		C3613DFA1F7E943100009B0D /* NSView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSView.swift; sourceTree = "<group>"; };
 		F0FB0999597FE95B0ACBCFCA /* Pods-Pipelines.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pipelines.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pipelines/Pods-Pipelines.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -115,10 +121,12 @@
 		C34454621F7D0C9F0027BDA1 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				C3613DF91F7E942800009B0D /* Extensions */,
+				C3613DF81F7E942200009B0D /* Managers */,
 				C344547B1F7D35260027BDA1 /* GraphQL */,
-				C34454631F7D0CAB0027BDA1 /* StatusItemManager.swift */,
-				C344546B1F7D13D90027BDA1 /* StatusIconView.swift */,
+				C3613DFC1F7E957500009B0D /* Layout */,
 				C34454791F7D2FE20027BDA1 /* Constants.swift */,
+				C3613DF61F7E90D700009B0D /* BuildState.swift */,
 				C344547E1F7E21750027BDA1 /* Emojis.swift */,
 			);
 			path = Classes;
@@ -151,6 +159,31 @@
 				C34454711F7D1AF90027BDA1 /* GraphQLClient.swift */,
 			);
 			path = GraphQL;
+			sourceTree = "<group>";
+		};
+		C3613DF81F7E942200009B0D /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				C34454631F7D0CAB0027BDA1 /* StatusItemManager.swift */,
+				C3613DF41F7E908600009B0D /* NotificationManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		C3613DF91F7E942800009B0D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C3613DFA1F7E943100009B0D /* NSView.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		C3613DFC1F7E957500009B0D /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+				C344546B1F7D13D90027BDA1 /* StatusIconView.swift */,
+			);
+			path = Layout;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -310,9 +343,12 @@
 				C344547F1F7E21750027BDA1 /* Emojis.swift in Sources */,
 				C34454641F7D0CAB0027BDA1 /* StatusItemManager.swift in Sources */,
 				C344546C1F7D13D90027BDA1 /* StatusIconView.swift in Sources */,
+				C3613DFB1F7E943100009B0D /* NSView.swift in Sources */,
 				C34454551F7D09350027BDA1 /* AppDelegate.swift in Sources */,
 				C34454721F7D1AF90027BDA1 /* GraphQLClient.swift in Sources */,
 				C34454761F7D22E40027BDA1 /* GraphQLGeneratedAPI.swift in Sources */,
+				C3613DF51F7E908600009B0D /* NotificationManager.swift in Sources */,
+				C3613DF71F7E90D700009B0D /* BuildState.swift in Sources */,
 				C344547A1F7D2FE20027BDA1 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -9,41 +9,13 @@
 import Foundation
 import Macaw
 import Cocoa
-import Apollo
-
-enum BuildState: String {
-    case empty
-    case failed
-    case passed
-    case scheduled
-    case running
-
-    init(from buildState: BuildStates) {
-        switch buildState {
-        case .failed, .canceled:
-            self = .failed
-
-        case .scheduled:
-            self = .scheduled
-
-        case .running, .canceling:
-            self = .running
-
-        case .passed:
-            self = .passed
-
-        default:
-            self = .empty
-        }
-    }
-}
 
 class StatusIconView: NSView {
     lazy private var _statusView: SVGView = {
         let frame = NSRect(x: 3, y: 1, width: 17, height: 17)
         let v = SVGView(frame: frame)
         v.contentMode = .scaleAspectFit
-        v.layer?.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+        v.layer?.anchorPoint = CGPoint(x: 0.5, y: 0.505)
         v.backgroundColor = MColor.clear
         v.wantsLayer = true
         v.layer?.backgroundColor = NSColor.clear.cgColor
