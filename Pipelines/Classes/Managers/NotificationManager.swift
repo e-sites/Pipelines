@@ -48,16 +48,21 @@ class NotificationManager {
 
         let notification = NSUserNotification()
 
-        var svgImage: String?
-        switch BuildState(from: node.state) {
+        let buildState = BuildState(from: node.state)
+        var svgImage: String? = buildState.rawValue
+        switch buildState {
         case .passed:
             notification.title = "Build is passed!"
-            svgImage = "passed"
+            
         case .failed:
             notification.title = "Build is failed!"
-            svgImage = "failed"
+
+        case .canceled:
+            notification.title = "Build is canceled!"
+
         default:
             notification.title = "New build"
+            svgImage = nil
         }
 
         if let icon = svgImage {

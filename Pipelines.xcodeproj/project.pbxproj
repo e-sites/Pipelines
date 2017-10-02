@@ -26,6 +26,7 @@
 		C3613DF51F7E908600009B0D /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3613DF41F7E908600009B0D /* NotificationManager.swift */; };
 		C3613DF71F7E90D700009B0D /* BuildState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3613DF61F7E90D700009B0D /* BuildState.swift */; };
 		C3613DFB1F7E943100009B0D /* NSView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3613DFA1F7E943100009B0D /* NSView.swift */; };
+		C3613DFE1F821D7D00009B0D /* canceled.svg in Resources */ = {isa = PBXBuildFile; fileRef = C3613DFD1F821D7A00009B0D /* canceled.svg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		C3613DF41F7E908600009B0D /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		C3613DF61F7E90D700009B0D /* BuildState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildState.swift; sourceTree = "<group>"; };
 		C3613DFA1F7E943100009B0D /* NSView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSView.swift; sourceTree = "<group>"; };
+		C3613DFD1F821D7A00009B0D /* canceled.svg */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = canceled.svg; sourceTree = "<group>"; };
 		F0FB0999597FE95B0ACBCFCA /* Pods-Pipelines.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pipelines.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pipelines/Pods-Pipelines.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -146,6 +148,7 @@
 				C34454771F7D2EB20027BDA1 /* scheduled.svg */,
 				C344546D1F7D15790027BDA1 /* empty.svg */,
 				C344546F1F7D17B60027BDA1 /* running.svg */,
+				C3613DFD1F821D7A00009B0D /* canceled.svg */,
 				C34454681F7D10B90027BDA1 /* failed.svg */,
 				C34454671F7D10770027BDA1 /* passed.svg */,
 			);
@@ -255,6 +258,7 @@
 				C344546A1F7D11600027BDA1 /* failed.svg in Resources */,
 				C34454781F7D2EB40027BDA1 /* scheduled.svg in Resources */,
 				C34454571F7D09350027BDA1 /* Assets.xcassets in Resources */,
+				C3613DFE1F821D7D00009B0D /* canceled.svg in Resources */,
 				C344545A1F7D09350027BDA1 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

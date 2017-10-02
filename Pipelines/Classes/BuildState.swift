@@ -15,11 +15,15 @@ enum BuildState: String {
     case passed
     case scheduled
     case running
+    case canceled
 
     init(from buildState: BuildStates) {
         switch buildState {
-        case .failed, .canceled:
+        case .failed:
             self = .failed
+
+        case .canceled:
+            self = .canceled
 
         case .scheduled:
             self = .scheduled
