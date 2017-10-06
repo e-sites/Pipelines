@@ -13,7 +13,8 @@ fileprivate var _emojiMapping: [String: String] = [
     "rocket": "🚀",
     "skull_and_crossbones": "☠️",
     "skull": "💀",
-    "helmet_with_white_cross": "⛑️"
+    "helmet_with_white_cross": "⛑️",
+    "male_scientist": "👨‍🔬"
 ]
 
 extension String {
