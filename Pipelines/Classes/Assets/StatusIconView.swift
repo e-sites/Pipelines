@@ -28,17 +28,6 @@ class StatusIconView: NSView {
         }
     }
 
-    override init(frame frameRect: NSRect) {
-        super.init(frame: frameRect)
-        self.addSubview(_statusView)
-        _statusView <- Edges()
-        _updateState()
-    }
-    
-    required init?(coder decoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
     var state: BuildState = .empty {
         didSet {
             if oldValue == state {
@@ -54,6 +43,17 @@ class StatusIconView: NSView {
             _statusView.layer?.anchorPoint = CGPoint(x: 0.5, y: 0.5)
             _statusView.frame = self.bounds
         }
+    }
+
+    override init(frame frameRect: NSRect) {
+        super.init(frame: frameRect)
+        self.addSubview(_statusView)
+        _statusView <- Edges()
+        _updateState()
+    }
+    
+    required init?(coder decoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 
     fileprivate func _updateState(oldValue: BuildState? = nil) {

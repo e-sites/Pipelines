@@ -15,27 +15,8 @@ class PopupViewController: NSViewController {
     @IBOutlet private weak var stackView: NSStackView!
     @IBOutlet private weak var headerView: NSView!
     @IBOutlet private weak var footerView: NSView!
-    lazy private var _buildViews: [BuildView] = {
-        var ar: [BuildView] = []
-        for _ in 0..<Constants.totalBuilds {
-            let buildView = BuildView(frame: NSRect.zero)
-            stackView.addArrangedSubview(buildView)
-            buildView <- [
-                Height(68),
-                Width(*1.0).like(stackView).with(.medium)
-            ]
-            ar.append(buildView)
-        }
-        return ar
-    }()
     
-    override init(nibName nibNameOrNil: NSNib.Name?, bundle nibBundleOrNil: Bundle?) {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-    }
-
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    private var _buildViews: [BuildView] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,7 +25,43 @@ class PopupViewController: NSViewController {
         stackView.wantsLayer = true
         footerView.wantsLayer = true
         self.view.layer?.backgroundColor = NSColor.clear.cgColor
-        stackView.layer?.backgroundColor = NSColor.white.cgColor
+        stackView.layer?.backgroundColor = NSColor(calibratedWhite: 0.95, alpha: 1).cgColor
+
+        _buildViews = (0..<Constants.totalBuilds).map { _ in
+            let buildView = BuildView(frame: NSRect.zero)
+            stackView.addArrangedSubview(buildView)
+            buildView <- [
+                Height(68),
+                Width(*1.0).like(stackView).with(.medium)
+            ]
+            return buildView
+        }
+        _addBorders()
+    }
+
+    private func _addBorders() {
+        let color = NSColor(calibratedWhite: 0.75, alpha: 1.0).cgColor
+        var line = NSView()
+        line.wantsLayer = true
+        line.layer?.backgroundColor = color
+        headerView.addSubview(line)
+        line <- [
+            Bottom(),
+            Left(),
+            Right(),
+            Height(1)
+        ]
+
+        line = NSView()
+        line.wantsLayer = true
+        line.layer?.backgroundColor = color
+        footerView.addSubview(line)
+        line <- [
+            Top(),
+            Left(),
+            Right(),
+            Height(1)
+        ]
     }
 
     var builds: [Build] = [] {
@@ -59,6 +76,7 @@ class PopupViewController: NSViewController {
         DispatchQueue.main.async {
             for buildView in self._buildViews {
                 buildView.iconView.shouldAnimate = true
+                buildView.updateText()
             }
         }
     }
@@ -83,7 +101,6 @@ extension PopupViewController {
     @IBAction func tapMoreBuilds(_ sender: NSButton) {
         let url = URL(string: "https://buildkite.com/builds")!
         NSWorkspace.shared.open(url)
-        close()
     }
 
     @IBAction func tapClose(_ sender: NSButton) {
@@ -94,7 +111,7 @@ extension PopupViewController {
         NotificationCenter.default.post(name: fetchBuildsNotification, object: nil)
     }
 
-    func close() {
+    func dismiss() {
         popover?.performClose(nil)
     }
 }

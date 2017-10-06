@@ -38,10 +38,10 @@
                             </connections>
                         </button>
                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="4zA-rs-boI">
-                            <rect key="frame" x="110" y="11" width="41" height="17"/>
+                            <rect key="frame" x="108" y="11" width="45" height="19"/>
                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Builds" id="NA2-wL-b7Z">
-                                <font key="font" metaFont="system"/>
-                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                <font key="font" size="13" name="SFUIText-Bold"/>
+                                <color key="textColor" white="0.37051671232495992" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                             </textFieldCell>
                         </textField>

@@ -13,14 +13,14 @@ import EasyPeasy
 class PopupView: NSView {
     override func viewDidMoveToWindow() {
 
-        guard let frameView = window?.contentView?.superview else {
+        guard let windowContentSuperView = window?.contentView?.superview else {
             return
         }
 
-        let backgroundView = NSView(frame: frameView.bounds)
+        let backgroundView = NSView(frame: windowContentSuperView.bounds)
         backgroundView.wantsLayer = true
         backgroundView.layer?.backgroundColor = NSColor(calibratedWhite: 0.92, alpha: 1).cgColor
-        frameView.addSubview(backgroundView, positioned: .below, relativeTo: frameView)
+        windowContentSuperView.addSubview(backgroundView, positioned: .below, relativeTo: windowContentSuperView)
         backgroundView <- Edges()
     }
 }

@@ -13,8 +13,11 @@ import Apollo
 
 class BuildView: NSControl {
 
-    let iconView = StatusIconView(frame: NSRect(x: 10, y: 20, width: 28, height: 28))
+    let iconView = StatusIconView(frame: NSRect.zero)
     let titleLabel = NSTextField()
+    private var _mouseDown = false
+    private var _mouseOver = false
+
     private lazy var _dateFormatter: DateFormatter = {
         let df = DateFormatter()
         df.timeZone = TimeZone(identifier: "UTC")
@@ -22,15 +25,25 @@ class BuildView: NSControl {
         return df
     }()
 
+    var build: Build? {
+        didSet {
+
+            if oldValue?.id == build?.id && oldValue?.state == build?.state {
+                updateText()
+                return
+            }
+            _update()
+        }
+    }
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
         iconView.shouldAnimate = false
         self.addSubview(iconView)
-//        iconView <- [
-//            CenterY(),
-//            Left(10),
-//            Size(28)
-//        ]
+        iconView <- [
+            CenterY(),
+            Left(10),
+            Size(28)
+        ]
         self.wantsLayer = true
 
         self.addSubview(titleLabel)
@@ -51,6 +64,7 @@ class BuildView: NSControl {
         titleLabel.isEnabled = true
         titleLabel.font = NSFont.systemFont(ofSize: 12)
         titleLabel.textColor = NSColor.gray
+        self.layer?.backgroundColor = NSColor.white.cgColor
 
     }
 
@@ -59,30 +73,56 @@ class BuildView: NSControl {
             while !self.trackingAreas.isEmpty {
                 self.removeTrackingArea(self.trackingAreas.first!)
             }
-            let area = NSTrackingArea.init(rect: bounds, options: [.mouseEnteredAndExited, .activeAlways], owner: self, userInfo: nil)
+            let area = NSTrackingArea(rect: bounds,
+                                      options: [.mouseEnteredAndExited, .activeAlways],
+                                      owner: self,
+                                      userInfo: nil)
             self.addTrackingArea(area)
         }
     }
-    private var _mouseDown = false
-    private var _mouseOver = false
+
     required init?(coder decoder: NSCoder) {
         super.init(coder: decoder)
     }
 
-    override func mouseUp(with event: NSEvent) {
-        super.mouseUp(with: event)
-        _mouseDown = false
-        if _mouseOver {
-            if let build = build {
-                let url = URL(string: build.url)!
-                NSWorkspace.shared.open(url)
-            }
-            self.layer?.backgroundColor = NSColor(calibratedWhite: 0.98, alpha: 1).cgColor
-        } else {
-            self.layer?.backgroundColor = NSColor.clear.cgColor
+    private func _update() {
+        guard let build = build else {
+            iconView.state = .empty
+            titleLabel.stringValue = ""
+            return
         }
+        self.layout()
+
+        iconView.state = BuildState(from: build.state)
+        updateText()
     }
 
+    func updateText() {
+        guard let build = build, let pipeline = build.pipeline else {
+            iconView.state = .empty
+            titleLabel.stringValue = ""
+            return
+        }
+
+        let buildMessage = build.message.emojiRendered
+        let pipelineName = pipeline.name.emojiRendered
+        var dateString = ""
+        if let createdAt = build.createdAt, let date = _dateFormatter.date(from: createdAt) {
+            dateString = date.timeAgoReadable().lowercased()
+        }
+        let string = "\(buildMessage) in \(pipelineName)\n\(iconView.state.title) \(dateString)"
+        let attrstr = NSMutableAttributedString(string: string)
+
+        attrstr.addAttributes([
+            .font: NSFont.boldSystemFont(ofSize: 12),
+            .foregroundColor: NSColor.black
+            ], range: (string as NSString).range(of: buildMessage))
+        titleLabel.attributedStringValue = attrstr
+        titleLabel.sizeToFit()
+    }
+}
+
+extension BuildView {
     override func mouseDown(with event: NSEvent) {
         super.mouseDown(with: event)
         _mouseDown = true
@@ -101,41 +141,21 @@ class BuildView: NSControl {
         if _mouseDown {
             return
         }
-        self.layer?.backgroundColor = NSColor.clear.cgColor
+        self.layer?.backgroundColor = NSColor.white.cgColor
     }
 
-    var build: Build? {
-        didSet {
-            if oldValue?.id == build?.id && oldValue?.state == build?.state {
-                return
+    override func mouseUp(with event: NSEvent) {
+        super.mouseUp(with: event)
+        _mouseDown = false
+        if _mouseOver {
+            if let build = build, let url = URL(string: build.url) {
+                NSWorkspace.shared.open(url)
             }
-            _update()
+
+            self.layer?.backgroundColor = NSColor(calibratedWhite: 0.98, alpha: 1).cgColor
+        } else {
+            self.layer?.backgroundColor = NSColor.white.cgColor
         }
     }
 
-    private func _update() {
-        guard let build = build, let pipeline = build.pipeline else {
-            iconView.state = .empty
-            titleLabel.stringValue = ""
-            return
-        }
-        self.layout()
-
-        iconView.state = BuildState(from: build.state)
-        let buildMessage = build.message.emojiRendered
-        let pipelineName = pipeline.name.emojiRendered
-        var dateString = ""
-        if let createdAt = build.createdAt, let date = _dateFormatter.date(from: createdAt) {
-            dateString = date.timeAgoReadable().lowercased()
-        }
-        let string = "\(buildMessage) in \(pipelineName)\n\(iconView.state.title) \(dateString)"
-        let attrstr = NSMutableAttributedString(string: string)
-
-        attrstr.addAttributes([
-            .font: NSFont.boldSystemFont(ofSize: 12),
-            .foregroundColor: NSColor.black
-            ], range: (string as NSString).range(of: buildMessage))
-        titleLabel.attributedStringValue = attrstr
-        titleLabel.sizeToFit()
-    }
 }

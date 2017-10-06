@@ -6,7 +6,7 @@
 
 ## Example
 
-![Screenshot](Assets/screenshot.png)
+![Screenshot](Assets/screenshot.png?002)
 
 ## Requirements
  - Xcode 9

@@ -16,8 +16,15 @@ extension Date {
         let earliest = now < self ? now : self
         let latest = (earliest == now) ? self : now
 
-        let components = calendar.dateComponents([ .minute, .hour, .day, .weekOfYear, .month, .year, .second ], from: earliest, to: latest)
-        guard let year = components.year, let month = components.month, let weekOfYear = components.weekOfYear, let day = components.day, let hour = components.hour, let minute = components.minute, let second = components.second else {
+        let componentsSet: Set<Calendar.Component> = [ .minute, .hour, .day, .weekOfYear, .month, .year, .second ]
+        let components = calendar.dateComponents(componentsSet, from: earliest, to: latest)
+        guard let year = components.year,
+            let month = components.month,
+            let weekOfYear = components.weekOfYear,
+            let day = components.day,
+            let hour = components.hour,
+            let minute = components.minute,
+            let second = components.second else {
             return ""
         }
         if year >= 2 {
