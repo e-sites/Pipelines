@@ -16,22 +16,16 @@
 
 ## Installation
 
-### Apollo
-*Requires `node`*
-
-```
-npm install -g apollo-codegen@0.17.0-alpha.7
-```
-
-### Cocoapods
-```
-pod install
-```
-
 ### GraphQL API Token
 Go to [buildkite.com/user/api-access-tokens](https://buildkite.com/user/api-access-tokens) and generate a new API token.   
 
 - Make sure you enable `GraphQL Beta (graphql)`
+- 
+### Make
+```
+mame install
+```
+And follow the steps
 
 ## Configuration
 Open `Classes/Constants.swift`.  

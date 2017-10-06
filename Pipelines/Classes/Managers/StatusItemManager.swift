@@ -92,11 +92,14 @@ class StatusItemManager {
         }
         if !popover.isShown {
             if _popoverTransiencyMonitor == nil {
-                _popoverTransiencyMonitor = NSEvent.addGlobalMonitorForEvents(matching: NSEvent.EventTypeMask([ .leftMouseDown, .rightMouseDown, .keyUp])) { [weak self] _ in
-                    guard let `self` = self, let monitor = self._popoverTransiencyMonitor else {
+                let masks = NSEvent.EventTypeMask([ .leftMouseDown, .rightMouseDown, .keyUp])
+                _popoverTransiencyMonitor = NSEvent.addGlobalMonitorForEvents(matching: masks) { [weak self] _ in
+                    guard let `self` = self else {
                         return
                     }
-                    NSEvent.removeMonitor(monitor)
+                    if let monitor = self._popoverTransiencyMonitor  {
+                        NSEvent.removeMonitor(monitor)
+                    }
                     self._popoverTransiencyMonitor = nil
                     self.popover.close()
                 }
