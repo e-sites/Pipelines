@@ -14,7 +14,7 @@ fileprivate var _emojiMapping: [String: String] = [
     "skull_and_crossbones": "☠️",
     "skull": "💀",
     "helmet_with_white_cross": "⛑️",
-    "male_scientist": "👨‍🔬"
+    "male-scientist": "👨‍🔬"
 ]
 
 extension String {
