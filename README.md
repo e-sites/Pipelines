@@ -49,8 +49,9 @@ Open `Classes/Constants.swift`.
 ## Todo
 - [x] Notifications
 - [x] Make context menu to show build information
+- [x] Emoji support
 - [ ] Localized
-- [ ] Support all the [Buildkite emojis](https://github.com/buildkite/emojis)
+- [ ] Support all the [Buildkite custom emojis](https://github.com/buildkite/emojis)
 
 ---
 
