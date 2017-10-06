@@ -12,8 +12,7 @@ import Cocoa
 
 class StatusIconView: NSView {
     lazy private var _statusView: SVGView = {
-        let frame = NSRect(x: 3, y: 1, width: 17, height: 17)
-        let v = SVGView(frame: frame)
+        let v = SVGView(frame: self.bounds)
         v.contentMode = .scaleAspectFit
         v.layer?.anchorPoint = CGPoint(x: 0.5, y: 0.505)
         v.backgroundColor = MColor.clear
@@ -42,10 +41,17 @@ class StatusIconView: NSView {
         }
     }
 
+    override var frame: NSRect {
+        didSet {
+            _statusView.frame = self.bounds
+        }
+    }
+
     fileprivate func _updateState(oldValue: BuildState? = nil) {
         defer {
             _statusView.fileName = state.rawValue
         }
+        _statusView.frame = self.bounds
         if oldValue == .scheduled && state == .running {
             return
         }
@@ -60,6 +66,7 @@ class StatusIconView: NSView {
             break
         }
     }
+
 
     fileprivate func _rotate() {
         let basicAnimation = CABasicAnimation(keyPath: "transform.rotation.z")

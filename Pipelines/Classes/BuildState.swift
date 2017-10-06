@@ -38,4 +38,21 @@ enum BuildState: String {
             self = .empty
         }
     }
+
+    var title: String {
+        switch self {
+        case .empty:
+            return ""
+        case .failed:
+            return "Failed"
+        case .passed:
+            return "Passed"
+        case .scheduled:
+            return "Scheduled"
+        case .running:
+            return "Running"
+        case .canceled:
+            return "Canceled"
+        }
+    }
 }

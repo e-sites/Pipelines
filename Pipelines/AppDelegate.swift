@@ -15,7 +15,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     private let statusItem = NSStatusBar.system.statusItem(withLength: 0)
     private let graphQLClient = GraphQLClient()
     private let statusItemManager = StatusItemManager()
-
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         statusItemManager.setup(with: statusItem)
         _fetch()

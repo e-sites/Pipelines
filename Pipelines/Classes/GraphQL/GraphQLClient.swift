@@ -22,7 +22,7 @@ class GraphQLClient {
         return ApolloClient(networkTransport: HTTPNetworkTransport(url: url, configuration: configuration))
     }()
 
-    func getLatestBuilds(completion: @escaping ([LatestBuildsQuery.Data.Viewer.User.Build.Edge.Node]?) -> Void) {
+    func getLatestBuilds(completion: @escaping ([Build]?) -> Void) {
         if isFetching {
             completion(nil)
             return

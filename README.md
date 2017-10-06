@@ -6,11 +6,7 @@
 
 ## Example
 
-![Screenshot](Assets/statusbar_screenshot.png)
-> 💡 Tapping on the build states will open [buildkite.com/builds](https://buildkite.com/builds).
-
-**Closing?**   
-(Force) quit `BuildKite-Pipelines` through the Activity Monitor
+![Screenshot](Assets/screenshot.png)
 
 ## Requirements
  - Xcode 9
@@ -48,10 +44,16 @@ Open `Classes/Constants.swift`.
  - [Apollo](https://github.com/apollographql/apollo-ios)
  - [Macaw](https://github.com/exyte/Macaw)
  - [SwiftyUserDefaults](https://github.com/radex/SwiftyUserDefaults)
+ - [EasyPeasy](https://github.com/nakiostudio/EasyPeasy)
 
 ## Todo
 - [x] Notifications
-- [ ] Make context menu to show build information
+- [x] Make context menu to show build information
+- [ ] Localized
+- [ ] Support all the [Buildkite emojis](https://github.com/buildkite/emojis)
 
 ---
-⚠️ *This is an unoffical app, Buildkite is in no way responsible for this or anything related to this particular product*
+
+## Disclaimer
+- 🤷‍♂️ *I'm an iOS developer and haven't done much macOS development, so don't look to much at the code*
+- ⚠️ *This is an unoffical app, Buildkite is in no way responsible for this or anything related to this particular product*

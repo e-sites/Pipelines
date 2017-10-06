@@ -23,10 +23,15 @@
 		C344547A1F7D2FE20027BDA1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34454791F7D2FE20027BDA1 /* Constants.swift */; };
 		C344547D1F7E1CE80027BDA1 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C344547C1F7E1CE80027BDA1 /* NotificationCenter.framework */; };
 		C344547F1F7E21750027BDA1 /* Emojis.swift in Sources */ = {isa = PBXBuildFile; fileRef = C344547E1F7E21750027BDA1 /* Emojis.swift */; };
+		C349050C1F875D0900194A5D /* PopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C349050B1F875D0900194A5D /* PopupView.swift */; };
+		C349050E1F8775B300194A5D /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = C349050D1F8775B300194A5D /* Date.swift */; };
 		C3613DF51F7E908600009B0D /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3613DF41F7E908600009B0D /* NotificationManager.swift */; };
 		C3613DF71F7E90D700009B0D /* BuildState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3613DF61F7E90D700009B0D /* BuildState.swift */; };
 		C3613DFB1F7E943100009B0D /* NSView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3613DFA1F7E943100009B0D /* NSView.swift */; };
 		C3613DFE1F821D7D00009B0D /* canceled.svg in Resources */ = {isa = PBXBuildFile; fileRef = C3613DFD1F821D7A00009B0D /* canceled.svg */; };
+		C37F49FD1F83C39D0036A74D /* BuildView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37F49FC1F83C39D0036A74D /* BuildView.swift */; };
+		C397FD341F827329007A8FE8 /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C397FD331F827329007A8FE8 /* PopupViewController.swift */; };
+		C397FD361F8273FC007A8FE8 /* PopupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C397FD351F8273FC007A8FE8 /* PopupViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,10 +55,15 @@
 		C34454791F7D2FE20027BDA1 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C344547C1F7E1CE80027BDA1 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		C344547E1F7E21750027BDA1 /* Emojis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emojis.swift; sourceTree = "<group>"; };
+		C349050B1F875D0900194A5D /* PopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupView.swift; sourceTree = "<group>"; };
+		C349050D1F8775B300194A5D /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		C3613DF41F7E908600009B0D /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		C3613DF61F7E90D700009B0D /* BuildState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildState.swift; sourceTree = "<group>"; };
 		C3613DFA1F7E943100009B0D /* NSView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSView.swift; sourceTree = "<group>"; };
 		C3613DFD1F821D7A00009B0D /* canceled.svg */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = canceled.svg; sourceTree = "<group>"; };
+		C37F49FC1F83C39D0036A74D /* BuildView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildView.swift; sourceTree = "<group>"; };
+		C397FD331F827329007A8FE8 /* PopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupViewController.swift; sourceTree = "<group>"; };
+		C397FD351F8273FC007A8FE8 /* PopupViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopupViewController.xib; sourceTree = "<group>"; };
 		F0FB0999597FE95B0ACBCFCA /* Pods-Pipelines.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pipelines.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pipelines/Pods-Pipelines.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -123,6 +133,7 @@
 		C34454621F7D0C9F0027BDA1 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				C349050A1F875CFE00194A5D /* Popup */,
 				C3613DF91F7E942800009B0D /* Extensions */,
 				C3613DF81F7E942200009B0D /* Managers */,
 				C344547B1F7D35260027BDA1 /* GraphQL */,
@@ -164,6 +175,17 @@
 			path = GraphQL;
 			sourceTree = "<group>";
 		};
+		C349050A1F875CFE00194A5D /* Popup */ = {
+			isa = PBXGroup;
+			children = (
+				C349050B1F875D0900194A5D /* PopupView.swift */,
+				C397FD331F827329007A8FE8 /* PopupViewController.swift */,
+				C37F49FC1F83C39D0036A74D /* BuildView.swift */,
+				C397FD351F8273FC007A8FE8 /* PopupViewController.xib */,
+			);
+			path = Popup;
+			sourceTree = "<group>";
+		};
 		C3613DF81F7E942200009B0D /* Managers */ = {
 			isa = PBXGroup;
 			children = (
@@ -177,6 +199,7 @@
 			isa = PBXGroup;
 			children = (
 				C3613DFA1F7E943100009B0D /* NSView.swift */,
+				C349050D1F8775B300194A5D /* Date.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -254,6 +277,7 @@
 			files = (
 				C34454701F7D17B70027BDA1 /* running.svg in Resources */,
 				C34454691F7D115E0027BDA1 /* passed.svg in Resources */,
+				C397FD361F8273FC007A8FE8 /* PopupViewController.xib in Resources */,
 				C344546E1F7D157B0027BDA1 /* empty.svg in Resources */,
 				C344546A1F7D11600027BDA1 /* failed.svg in Resources */,
 				C34454781F7D2EB40027BDA1 /* scheduled.svg in Resources */,
@@ -289,6 +313,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Pipelines/Pods-Pipelines-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Apollo/Apollo.framework",
+				"${BUILT_PRODUCTS_DIR}/EasyPeasy/EasyPeasy.framework",
 				"${BUILT_PRODUCTS_DIR}/Macaw/Macaw.framework",
 				"${BUILT_PRODUCTS_DIR}/SWXMLHash/SWXMLHash.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyUserDefaults/SwiftyUserDefaults.framework",
@@ -296,6 +321,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Apollo.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EasyPeasy.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Macaw.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SWXMLHash.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyUserDefaults.framework",
@@ -345,15 +371,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				C344547F1F7E21750027BDA1 /* Emojis.swift in Sources */,
+				C37F49FD1F83C39D0036A74D /* BuildView.swift in Sources */,
 				C34454641F7D0CAB0027BDA1 /* StatusItemManager.swift in Sources */,
 				C344546C1F7D13D90027BDA1 /* StatusIconView.swift in Sources */,
 				C3613DFB1F7E943100009B0D /* NSView.swift in Sources */,
 				C34454551F7D09350027BDA1 /* AppDelegate.swift in Sources */,
 				C34454721F7D1AF90027BDA1 /* GraphQLClient.swift in Sources */,
+				C349050E1F8775B300194A5D /* Date.swift in Sources */,
 				C34454761F7D22E40027BDA1 /* GraphQLGeneratedAPI.swift in Sources */,
 				C3613DF51F7E908600009B0D /* NotificationManager.swift in Sources */,
 				C3613DF71F7E90D700009B0D /* BuildState.swift in Sources */,
 				C344547A1F7D2FE20027BDA1 /* Constants.swift in Sources */,
+				C397FD341F827329007A8FE8 /* PopupViewController.swift in Sources */,
+				C349050C1F875D0900194A5D /* PopupView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -400,7 +430,6 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "Mac Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -457,7 +486,6 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "Mac Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -483,9 +511,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Pipelines/Pipelines.entitlements;
-				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = KH7U9B5DS2;
 				INFOPLIST_FILE = Pipelines/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
@@ -501,9 +527,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Pipelines/Pipelines.entitlements;
-				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = KH7U9B5DS2;
 				INFOPLIST_FILE = Pipelines/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.12;

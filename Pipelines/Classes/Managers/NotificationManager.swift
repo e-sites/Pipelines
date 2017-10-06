@@ -23,7 +23,7 @@ class NotificationManager {
 
     }
 
-    fileprivate func _notificationIdentifier(`for` node: LatestBuildsQuery.Data.Viewer.User.Build.Edge.Node) -> String {
+    fileprivate func _notificationIdentifier(`for` node: Build) -> String {
         var buildState = BuildState(from: node.state)
         if buildState == .scheduled || buildState == .empty {
             buildState = .running
@@ -31,12 +31,12 @@ class NotificationManager {
         return node.id + buildState.rawValue
     }
 
-    func hasNotificationBeenTriggered(`for` node: LatestBuildsQuery.Data.Viewer.User.Build.Edge.Node) -> Bool {
+    func hasNotificationBeenTriggered(`for` node: Build) -> Bool {
         let identifier = _notificationIdentifier(for: node)
         return Defaults[.deliveredNotifications].contains(identifier)
     }
 
-    func triggerLocalNotification(`for` node: LatestBuildsQuery.Data.Viewer.User.Build.Edge.Node) {
+    func triggerLocalNotification(`for` node: Build) {
         if hasNotificationBeenTriggered(for: node) {
             return
         }
