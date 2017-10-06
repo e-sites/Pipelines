@@ -61,12 +61,7 @@ class StatusItemManager {
         button.action = #selector(_tapStatusButton)
 
         button.addSubview(_container)
-        _container <- [
-            Left(),
-            Right(),
-            Top(),
-            Bottom(2)
-        ]
+        _container <- Edges()
         statusItem.length = NSStatusItem.squareLength
     }
 
