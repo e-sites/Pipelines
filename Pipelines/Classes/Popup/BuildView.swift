@@ -13,7 +13,7 @@ import Apollo
 
 class BuildView: NSControl {
 
-    let iconView = StatusIconView()
+    let iconView = StatusIconView(frame: NSRect(x: 10, y: 20, width: 28, height: 28))
     let titleLabel = NSTextField()
     private lazy var _dateFormatter: DateFormatter = {
         let df = DateFormatter()
@@ -24,19 +24,19 @@ class BuildView: NSControl {
 
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
+        iconView.shouldAnimate = false
         self.addSubview(iconView)
-        iconView <- [
-            CenterY(),
-            Left(10),
-            Width(*0.4).like(self, .height),
-            Height(*1.0).like(iconView, .width)
-        ]
+//        iconView <- [
+//            CenterY(),
+//            Left(10),
+//            Size(28)
+//        ]
         self.wantsLayer = true
 
         self.addSubview(titleLabel)
         titleLabel <- [
             CenterY(),
-            Left(15).to(iconView, .right),
+            Left(53),
             Height(>=0),
             Width(<=1.0*0.8).like(self),
             Right(10)
@@ -51,6 +51,7 @@ class BuildView: NSControl {
         titleLabel.isEnabled = true
         titleLabel.font = NSFont.systemFont(ofSize: 12)
         titleLabel.textColor = NSColor.gray
+
     }
 
     override var frame: NSRect {
@@ -125,7 +126,7 @@ class BuildView: NSControl {
         let pipelineName = pipeline.name.emojiRendered
         var dateString = ""
         if let createdAt = build.createdAt, let date = _dateFormatter.date(from: createdAt) {
-            dateString = date.timeAgoReadable()
+            dateString = date.timeAgoReadable().lowercased()
         }
         let string = "\(buildMessage) in \(pipelineName)\n\(iconView.state.title) \(dateString)"
         let attrstr = NSMutableAttributedString(string: string)

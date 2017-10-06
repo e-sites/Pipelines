@@ -8,23 +8,30 @@
 
 import Foundation
 import Macaw
+import EasyPeasy
 import Cocoa
 
 class StatusIconView: NSView {
     lazy private var _statusView: SVGView = {
         let v = SVGView(frame: self.bounds)
-        v.contentMode = .scaleAspectFit
-        v.layer?.anchorPoint = CGPoint(x: 0.5, y: 0.505)
-        v.backgroundColor = MColor.clear
         v.wantsLayer = true
+        v.contentMode = .scaleAspectFit
+        v.backgroundColor = MColor.clear
         v.layer?.backgroundColor = NSColor.clear.cgColor
         v.layer?.masksToBounds = false
         return v
     }()
 
+    var shouldAnimate: Bool = true {
+        didSet {
+            _updateState(oldValue: nil)
+        }
+    }
+
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
         self.addSubview(_statusView)
+        _statusView <- Edges()
         _updateState()
     }
     
@@ -43,6 +50,8 @@ class StatusIconView: NSView {
 
     override var frame: NSRect {
         didSet {
+            _statusView.layer?.position = CGPoint(x: frame.size.width / 2.0, y: frame.size.height / 2.0)
+            _statusView.layer?.anchorPoint = CGPoint(x: 0.5, y: 0.5)
             _statusView.frame = self.bounds
         }
     }
@@ -51,7 +60,8 @@ class StatusIconView: NSView {
         defer {
             _statusView.fileName = state.rawValue
         }
-        _statusView.frame = self.bounds
+        let f = frame
+        self.frame = f
         if oldValue == .scheduled && state == .running {
             return
         }
@@ -69,6 +79,9 @@ class StatusIconView: NSView {
 
 
     fileprivate func _rotate() {
+        if !shouldAnimate {
+            return
+        }
         let basicAnimation = CABasicAnimation(keyPath: "transform.rotation.z")
         basicAnimation.fromValue = 0
         basicAnimation.toValue = Double(360) * .pi / 180

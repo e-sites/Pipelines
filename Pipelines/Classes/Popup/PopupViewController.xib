@@ -45,17 +45,33 @@
                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                             </textFieldCell>
                         </textField>
+                        <button translatesAutoresizingMaskIntoConstraints="NO" id="Gdr-cq-Esm">
+                            <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="40" id="UDe-MO-3ap"/>
+                            </constraints>
+                            <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="Icons-Refresh" imagePosition="only" alignment="center" state="on" inset="2" id="SvE-CD-rUu">
+                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                            <connections>
+                                <action selector="tapRefresh:" target="-2" id="WLf-Gh-LTz"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="DJr-Us-3h6"/>
                         <constraint firstItem="4zA-rs-boI" firstAttribute="centerY" secondItem="jWm-Z8-bpN" secondAttribute="centerY" id="VYk-5c-qfU"/>
+                        <constraint firstItem="Gdr-cq-Esm" firstAttribute="top" secondItem="jWm-Z8-bpN" secondAttribute="top" id="jAw-Mx-mQi"/>
                         <constraint firstAttribute="trailing" secondItem="emB-FZ-yMA" secondAttribute="trailing" id="olN-mZ-9B3"/>
                         <constraint firstItem="emB-FZ-yMA" firstAttribute="top" secondItem="jWm-Z8-bpN" secondAttribute="top" id="psF-Jb-fbP"/>
+                        <constraint firstAttribute="bottom" secondItem="Gdr-cq-Esm" secondAttribute="bottom" id="rN6-QI-4hv"/>
                         <constraint firstAttribute="bottom" secondItem="emB-FZ-yMA" secondAttribute="bottom" id="rg3-7M-Qla"/>
                         <constraint firstItem="4zA-rs-boI" firstAttribute="centerX" secondItem="jWm-Z8-bpN" secondAttribute="centerX" id="wsz-Wv-Sp5"/>
+                        <constraint firstItem="Gdr-cq-Esm" firstAttribute="leading" secondItem="jWm-Z8-bpN" secondAttribute="leading" id="yXq-By-T3K"/>
                     </constraints>
                 </customView>
-                <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="1" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nO0-FR-RKQ">
+                <stackView canDrawConcurrently="YES" distribution="fill" orientation="vertical" alignment="leading" spacing="1" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nO0-FR-RKQ">
                     <rect key="frame" x="0.0" y="40" width="260" height="340"/>
                 </stackView>
                 <customView translatesAutoresizingMaskIntoConstraints="NO" id="znh-iJ-IRu">
@@ -100,5 +116,6 @@
     </objects>
     <resources>
         <image name="Icons-Close" width="12" height="12"/>
+        <image name="Icons-Refresh" width="14" height="14"/>
     </resources>
 </document>

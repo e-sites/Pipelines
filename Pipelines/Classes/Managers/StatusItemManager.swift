@@ -8,7 +8,9 @@
 
 import Foundation
 import Cocoa
+import EasyPeasy
 import Apollo
+
 typealias Build = LatestBuildsQuery.Data.Viewer.User.Build.Edge.Node
 
 class StatusItemManager {
@@ -17,6 +19,12 @@ class StatusItemManager {
     private let popover = NSPopover()
     private var popupViewController: PopupViewController!
     private var _popoverTransiencyMonitor: Any?
+    lazy private var _container: NSStackView = {
+        let stackView = NSStackView()
+        stackView.orientation = .horizontal
+        stackView.spacing = 3
+        return stackView
+    }()
 
     init() {
         let nibName = NSNib.Name("PopupViewController")
@@ -30,15 +38,14 @@ class StatusItemManager {
     }
 
     private func _addNewStatusIconView() {
-        let x = CGFloat(_statusIcons.count) * 20
-        let frame = NSRect(x: 3 + x, y: 2, width: 17, height: 17)
 
-        let iconView = StatusIconView(frame: frame)
+        let iconView = StatusIconView(frame: NSRect.zero)
         _statusIcons.append(iconView)
-
-        statusItem.button?.addSubview(iconView)
-
-        statusItem.length = CGFloat(_statusIcons.count * 20) + 2
+        _container.addArrangedSubview(iconView)
+        iconView <- [
+            Size(17)
+        ]
+        statusItem.length = CGFloat(_statusIcons.count * 20) - _container.spacing
     }
 
     func setup(with statusItem: NSStatusItem) {
@@ -52,7 +59,14 @@ class StatusItemManager {
 
         button.target = self
         button.action = #selector(_tapStatusButton)
-        
+
+        button.addSubview(_container)
+        _container <- [
+            Left(),
+            Right(),
+            Top(),
+            Bottom(2)
+        ]
         statusItem.length = NSStatusItem.squareLength
     }
 

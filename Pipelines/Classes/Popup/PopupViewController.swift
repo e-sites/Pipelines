@@ -17,7 +17,7 @@ class PopupViewController: NSViewController {
     @IBOutlet private weak var footerView: NSView!
     lazy private var _buildViews: [BuildView] = {
         var ar: [BuildView] = []
-        for _ in 0..<5 {
+        for _ in 0..<Constants.totalBuilds {
             let buildView = BuildView(frame: NSRect.zero)
             stackView.addArrangedSubview(buildView)
             buildView <- [
@@ -56,6 +56,11 @@ class PopupViewController: NSViewController {
     func show(from sender: NSView) {
         popover?.show(relativeTo: sender.bounds, of: sender, preferredEdge: NSRectEdge.minY)
         _update()
+        DispatchQueue.main.async {
+            for buildView in self._buildViews {
+                buildView.iconView.shouldAnimate = true
+            }
+        }
     }
 }
 
@@ -83,6 +88,10 @@ extension PopupViewController {
 
     @IBAction func tapClose(_ sender: NSButton) {
         exit(0)
+    }
+
+    @IBAction func tapRefresh(_ sender: NSButton) {
+        NotificationCenter.default.post(name: fetchBuildsNotification, object: nil)
     }
 
     func close() {

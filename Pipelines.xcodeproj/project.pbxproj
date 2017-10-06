@@ -178,10 +178,10 @@
 		C349050A1F875CFE00194A5D /* Popup */ = {
 			isa = PBXGroup;
 			children = (
-				C349050B1F875D0900194A5D /* PopupView.swift */,
 				C397FD331F827329007A8FE8 /* PopupViewController.swift */,
-				C37F49FC1F83C39D0036A74D /* BuildView.swift */,
 				C397FD351F8273FC007A8FE8 /* PopupViewController.xib */,
+				C349050B1F875D0900194A5D /* PopupView.swift */,
+				C37F49FC1F83C39D0036A74D /* BuildView.swift */,
 			);
 			path = Popup;
 			sourceTree = "<group>";
