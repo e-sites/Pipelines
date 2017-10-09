@@ -20,7 +20,7 @@
 Go to [buildkite.com/user/api-access-tokens](https://buildkite.com/user/api-access-tokens) and generate a new API token.   
 
 - Make sure you enable `GraphQL Beta (graphql)`
-- 
+
 ### Make
 ```
 mame install

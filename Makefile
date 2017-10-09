@@ -12,6 +12,7 @@ install:
 		bundle exec pod install --repo-update
 
 		ruby ./parse_emojis.rb
+		
 help:
 	@echo "Available make commands:"
 	@echo "   $$ make help - display this message"
