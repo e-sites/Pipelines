@@ -23,7 +23,7 @@ Go to [buildkite.com/user/api-access-tokens](https://buildkite.com/user/api-acce
 
 ### Make
 ```
-mame install
+make install
 ```
 And follow the steps
 
