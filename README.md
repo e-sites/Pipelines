@@ -44,6 +44,8 @@ Open `Classes/Constants.swift`.
 - [x] Notifications
 - [x] Make context menu to show build information
 - [x] Emoji support
+- [ ] Settings screen to set API token
+- [ ] Settings screen to filter builds by meta-tags
 - [ ] Localized
 - [ ] Support all the [Buildkite custom emojis](https://github.com/buildkite/emojis)
 
