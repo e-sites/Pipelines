@@ -40,7 +40,7 @@ class StatusIconView: NSView {
     override var frame: NSRect {
         didSet {
             _statusView.layer?.position = CGPoint(x: frame.size.width / 2.0, y: frame.size.height / 2.0)
-            _statusView.layer?.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+            _statusView.layer?.anchorPoint = CGPoint(x: 0.5, y: 0.485)
             _statusView.frame = self.bounds
         }
     }
@@ -73,6 +73,7 @@ class StatusIconView: NSView {
         case .running, .scheduled:
             _rotate()
         default:
+            _rotate()
             break
         }
     }
