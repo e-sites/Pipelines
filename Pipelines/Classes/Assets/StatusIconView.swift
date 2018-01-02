@@ -73,7 +73,6 @@ class StatusIconView: NSView {
         case .running, .scheduled:
             _rotate()
         default:
-            _rotate()
             break
         }
     }

@@ -3,10 +3,10 @@ PODS:
     - Apollo/Core (= 0.7.0-alpha.5)
   - Apollo/Core (0.7.0-alpha.5)
   - EasyPeasy (1.6.0)
-  - Macaw (0.9.0):
+  - Macaw (0.9.1):
     - SWXMLHash
   - SwiftyUserDefaults (3.0.0)
-  - SWXMLHash (4.2.2)
+  - SWXMLHash (4.2.5)
 
 DEPENDENCIES:
   - Apollo (= 0.7.0-alpha.5)
@@ -17,9 +17,9 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   Apollo: 46f935705f5acccadf0b52bdbe54b08ffd29987d
   EasyPeasy: aef0a77d7e7636d6b5e046194bc911b0a8d73c88
-  Macaw: 6337ed621a73df10522eaab17f45c1ae0b753dc0
+  Macaw: 8b13bb7ae2f527b3c7b2787988bbc5461a1c66e3
   SwiftyUserDefaults: 0f1d45fc3aafb9064dac661e367f8f83fe21a4b4
-  SWXMLHash: 84463c0767c7c117990d2b15dd2d922dc2a689fa
+  SWXMLHash: eb16013c6f654853980822e0a778c9d66e017dde
 
 PODFILE CHECKSUM: 63268420dba4a6d9d59da85d314ec533d076b750
 

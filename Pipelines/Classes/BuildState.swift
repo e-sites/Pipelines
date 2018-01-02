@@ -16,6 +16,7 @@ enum BuildState: String {
     case scheduled
     case running
     case canceled
+    case skipped
 
     init(from buildState: BuildStates) {
         switch buildState {
@@ -34,6 +35,9 @@ enum BuildState: String {
         case .passed:
             self = .passed
 
+        case .skipped:
+            self = .skipped
+            
         default:
             self = .empty
         }
@@ -53,6 +57,8 @@ enum BuildState: String {
             return "Running"
         case .canceled:
             return "Canceled"
+        case .skipped:
+            return "Skipped"
         }
     }
 }

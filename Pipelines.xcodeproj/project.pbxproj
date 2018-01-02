@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AB284CCBBC309A4772F75582 /* Pods_Pipelines.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9915F2A5959212E3E4F4E1E /* Pods_Pipelines.framework */; };
+		C323107C1FFB87D900DD945E /* skipped.svg in Resources */ = {isa = PBXBuildFile; fileRef = C323107B1FFB87D900DD945E /* skipped.svg */; };
 		C34454551F7D09350027BDA1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34454541F7D09350027BDA1 /* AppDelegate.swift */; };
 		C34454571F7D09350027BDA1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C34454561F7D09350027BDA1 /* Assets.xcassets */; };
 		C344545A1F7D09350027BDA1 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = C34454581F7D09350027BDA1 /* MainMenu.xib */; };
@@ -37,6 +38,7 @@
 /* Begin PBXFileReference section */
 		0A0B7FD03A4906AE526FD00B /* Pods-Pipelines.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pipelines.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pipelines/Pods-Pipelines.debug.xcconfig"; sourceTree = "<group>"; };
 		A9915F2A5959212E3E4F4E1E /* Pods_Pipelines.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pipelines.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C323107B1FFB87D900DD945E /* skipped.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = skipped.svg; sourceTree = "<group>"; };
 		C34454511F7D09350027BDA1 /* BuildKite-Pipelines.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BuildKite-Pipelines.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C34454541F7D09350027BDA1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C34454561F7D09350027BDA1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				C34454771F7D2EB20027BDA1 /* scheduled.svg */,
+				C323107B1FFB87D900DD945E /* skipped.svg */,
 				C344546D1F7D15790027BDA1 /* empty.svg */,
 				C344546F1F7D17B60027BDA1 /* running.svg */,
 				C3613DFD1F821D7A00009B0D /* canceled.svg */,
@@ -284,6 +287,7 @@
 				C34454571F7D09350027BDA1 /* Assets.xcassets in Resources */,
 				C3613DFE1F821D7D00009B0D /* canceled.svg in Resources */,
 				C344545A1F7D09350027BDA1 /* MainMenu.xib in Resources */,
+				C323107C1FFB87D900DD945E /* skipped.svg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
