@@ -13,7 +13,8 @@ import Cocoa
 
 class StatusIconView: NSView {
     lazy private var _statusView: SVGView = {
-        let v = SVGView(frame: self.bounds)
+        let rect: CGRect = NSRectToCGRect(self.bounds)
+        let v = SVGView(node: Group(), frame: rect)
         v.wantsLayer = true
         v.contentMode = .scaleAspectFit
         v.backgroundColor = MColor.clear

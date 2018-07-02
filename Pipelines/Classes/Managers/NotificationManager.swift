@@ -67,7 +67,7 @@ class NotificationManager {
 
         if let icon = svgImage {
             let frame = NSRect(x: 0, y: 0, width: 128, height: 128)
-            let v = SVGView(frame: frame)
+            let v = SVGView(node: Group(), frame: frame)
             v.contentMode = .scaleAspectFit
             v.backgroundColor = MColor.clear
             v.fileName = icon
